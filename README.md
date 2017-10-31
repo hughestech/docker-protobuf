@@ -2,7 +2,7 @@
 All inclusive protoc suite, powered by Docker and Alpine Linux.
 
 ## What's included:
-- protobuf 3.4.1
+- protobuf 3.4.0
 - gRPC 1.6.1
 - Google Well Known Types are automatically included (via `google/`)
 - Go related tools compiled with 1.8.1, gRPC support is built-in:
@@ -30,13 +30,13 @@ All inclusive protoc suite, powered by Docker and Alpine Linux.
 
 ## Usage
 ```
-$ docker run --rm znly/protoc --help
+$ docker run --rm hughestech/docker-protobuf --help
 Usage: /usr/bin/protoc [OPTION] PROTO_FILES
 ```
 
 Don't forget you need to bind mount your files:
 ```
-$ docker run --rm -v $(pwd):$(pwd) -w $(pwd) znly/protoc --python_out=. -I. myfile.proto
+$ docker run --rm -v $(pwd):$(pwd) -w $(pwd) hughestech/docker-protobuf --python_out=. -I. myfile.proto
 ```
 
 ## Google Well Known Types
