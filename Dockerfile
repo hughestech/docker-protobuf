@@ -6,6 +6,7 @@ ENV GRPC_VERSION=1.6.6 \
     PROTOBUF_VERSION=3.4.1 \
     PROTOBUF_C_VERSION=1.3.0 \
     PROTOC_GEN_DOC_VERSION=1.0.0-rc \
+    PYTHON_VERSION=3.6  \
     OUTDIR=/out
 RUN mkdir -p /protobuf && \
     curl -L https://github.com/google/protobuf/archive/v${PROTOBUF_VERSION}.tar.gz | tar xvz --strip-components=1 -C /protobuf
@@ -69,7 +70,7 @@ RUN cd ${GOPATH}/src/github.com/pseudomuto/protoc-gen-doc && \
 FROM ubuntu:16.04 as swift_builder
 RUN apt-get update && \
     apt-get install -y build-essential make tar xz-utils bzip2 gzip sed \
-    libz-dev unzip patchelf curl libedit-dev python2.7 python2.7-dev libxml2 \
+    libz-dev unzip patchelf curl libedit-dev python$PYTHON_VERSION python$PYTHON_VERSION-dev libxml2 \
     git libxml2-dev uuid-dev libssl-dev bash patch
 ENV SWIFT_VERSION=4.0 \
     LLVM_VERSION=5.0.0
