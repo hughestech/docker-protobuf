@@ -1,11 +1,11 @@
 FROM alpine:3.6 as protoc_builder
 RUN apk add --no-cache build-base curl automake autoconf libtool git zlib-dev
 
-ENV GRPC_VERSION=1.6.1 \
-    GRPC_JAVA_VERSION=1.6.1 \
-    PROTOBUF_VERSION=3.4.1 \
+ENV GRPC_VERSION=1.10.1 \
+    GRPC_JAVA_VERSION=1.10.1 \
+    PROTOBUF_VERSION=3.5.1 \
     PROTOBUF_C_VERSION=1.3.0 \
-    PROTOC_GEN_DOC_VERSION=1.0.0-rc \
+    PROTOC_GEN_DOC_VERSION=1.1.0 \
     OUTDIR=/out
 RUN mkdir -p /protobuf && \
     curl -L https://github.com/google/protobuf/archive/v${PROTOBUF_VERSION}.tar.gz | tar xvz --strip-components=1 -C /protobuf
